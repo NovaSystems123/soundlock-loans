@@ -1,4 +1,4 @@
-import { useContract, useContractWrite, useContractRead } from 'wagmi';
+import { useContractWrite, useContractRead, useReadContract, useWriteContract } from 'wagmi';
 import { useAccount } from 'wagmi';
 
 // Contract ABI - this would be generated from the compiled contract
@@ -85,11 +85,7 @@ const CONTRACT_ADDRESS = "0x0000000000000000000000000000000000000000"; // Replac
 
 export function useSoundLockContract() {
   const { address } = useAccount();
-  
-  const contract = useContract({
-    address: CONTRACT_ADDRESS,
-    abi: SOUNDLOCK_ABI,
-  });
+  const { writeContract } = useWriteContract();
 
   const submitLoanApplication = useContractWrite({
     address: CONTRACT_ADDRESS,
@@ -122,7 +118,7 @@ export function useSoundLockContract() {
   });
 
   return {
-    contract,
+    writeContract,
     submitLoanApplication,
     registerMusicIP,
     makeRepayment,
