@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Music IP Financing Design System
+Dark studio aesthetic with premium fintech elements and neon accents
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Studio Dark Theme */
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+    
+    /* Music Studio Palette */
+    --studio-deep: 225 39% 7%;
+    --studio-medium: 222 30% 12%;
+    --studio-surface: 218 25% 18%;
+    
+    /* Electric Accents */
+    --electric-blue: 194 95% 58%;
+    --electric-cyan: 180 90% 55%;
+    --neon-green: 120 85% 65%;
+    --gold-accent: 45 95% 65%;
+    
+    /* Sound Wave Colors */
+    --wave-primary: 194 95% 58%;
+    --wave-secondary: 180 90% 55%;
+    --wave-encrypted: 0 75% 60%;
+    
+    /* Gradients */
+    --gradient-studio: linear-gradient(135deg, hsl(225, 39%, 7%), hsl(218, 25%, 18%));
+    --gradient-electric: linear-gradient(90deg, hsl(194, 95%, 58%), hsl(180, 90%, 55%));
+    --gradient-sound: linear-gradient(45deg, hsl(194, 95%, 58%), hsl(120, 85%, 65%));
+    --gradient-encrypted: linear-gradient(135deg, hsl(0, 75%, 60%), hsl(15, 85%, 55%));
+    
+    /* Shadows & Effects */
+    --glow-blue: 0 0 30px hsl(194, 95%, 58%, 0.4);
+    --glow-cyan: 0 0 25px hsl(180, 90%, 55%, 0.3);
+    --glow-gold: 0 0 20px hsl(45, 95%, 65%, 0.5);
+    
+    /* Standard Theme Mapping */
+    --card: 218 25% 18%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 218 25% 18%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 194 95% 58%;
+    --primary-foreground: 225 39% 7%;
+
+    --secondary: 180 90% 55%;
+    --secondary-foreground: 225 39% 7%;
+
+    --muted: 222 30% 12%;
+    --muted-foreground: 210 20% 70%;
+
+    --accent: 45 95% 65%;
+    --accent-foreground: 225 39% 7%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 218 25% 25%;
+    --input: 222 30% 12%;
+    --ring: 194 95% 58%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Same as light theme for this dark-first design */
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+    --card: 218 25% 18%;
+    --card-foreground: 210 40% 98%;
+    --popover: 218 25% 18%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 194 95% 58%;
+    --primary-foreground: 225 39% 7%;
+    --secondary: 180 90% 55%;
+    --secondary-foreground: 225 39% 7%;
+    --muted: 222 30% 12%;
+    --muted-foreground: 210 20% 70%;
+    --accent: 45 95% 65%;
+    --accent-foreground: 225 39% 7%;
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 218 25% 25%;
+    --input: 222 30% 12%;
+    --ring: 194 95% 58%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-studio);
+    min-height: 100vh;
+  }
+  
+  /* Custom Animations */
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+  }
+  
+  @keyframes wave-oscillate {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.5); }
+  }
+  
+  @keyframes binary-scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+  }
+  
+  @keyframes glow-rotate {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: var(--glow-blue);
+  }
+  
+  .glow-secondary {
+    box-shadow: var(--glow-cyan);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--glow-gold);
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-wave {
+    animation: wave-oscillate 0.8s ease-in-out infinite;
+  }
+  
+  .animate-binary {
+    animation: binary-scroll 10s linear infinite;
+  }
+  
+  .animate-glow-rotate {
+    animation: glow-rotate 8s linear infinite;
+  }
+}
